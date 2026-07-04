@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>QuantPulse | AI Stock Analytics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+    <div class="blob-c">
+        <div class="shape-blob"></div>
+        <div class="shape-blob one"></div>
+        <div class="shape-blob two"></div>
+    </div>
+
+    <main class="app-container">
+        <header class="app-header reveal">
+            <div class="badge">AI-POWERED FORECASTING</div>
+            <h1>Quant<span class="gradient-text">Pulse</span></h1>
+            <p>Predicting market trends with Deep Learning LSTM & Linear Regression </p>
+        </header>
+
+        <div class="main-grid">
+            <section class="control-panel glass reveal">
+                <div class="field">
+                    <label><i class="icon">📊</i> Select Asset</label>
+                    <select id="stock">
+                        <option value="AAPL">Apple Inc. (AAPL)</option>
+                        <option value="INFY">Infosys Ltd. (INFY)</option>
+                        <option value="TCS">TCS (TCS.NS)</option>
+                    </select>
+                </div>
+
+                <div class="lag-grid">
+                    <div class="field">
+                        <label>Lag 1 (T-1)</label>
+                        <input id="lag1" type="number" step="any" placeholder="0.00" />
+                    </div>
+                    <div class="field">
+                        <label>Lag 2 (T-2)</label>
+                        <input id="lag2" type="number" step="any" placeholder="0.00" />
+                    </div>
+                    <div class="field">
+                        <label>Lag 3 (T-3)</label>
+                        <input id="lag3" type="number" step="any" placeholder="0.00" />
+                    </div>
+                </div>
+
+                <div class="model-selection-label">Select Intelligence Architecture</div>
+                <div class="model-toggle">
+                    <label class="model-card" id="mlCard">
+                        <input type="radio" name="model" value="ml" checked />
+                        <div class="card-content">
+                            <span class="card-icon">⚙️</span>
+                            <div>
+                                <h4>Classical ML</h4>
+                                <p>Linear Regression</p>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="model-card" id="dlCard">
+                        <input type="radio" name="model" value="dl" />
+                        <div class="card-content">
+                            <span class="card-icon">🧠</span>
+                            <div>
+                                <h4>LSTM Neural</h4>
+                                <p>Deep Temporal Patterns</p>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <button id="predictBtn" onclick="predict()">
+                    <span>Execute Prediction</span>
+                    <i class="arrow-icon">→</i>
+                </button>
+                <p id="status" class="status"></p>
+            </section>
+
+            <div class="results-column">
+                <section class="results glass reveal">
+                    <div class="result-box">
+                        <span class="label-sm">Projected Market Value</span>
+                        <h3 id="price">₹ 0.00</h3>
+                        <div class="metrics">
+                            <p id="trend" class="trend-badge"></p>
+                            <p id="confidence" class="conf-badge"></p>
+                        </div>
+                    </div>
+                    <div class="summary-box">
+                        <p id="summary">Market analysis will appear here...</p>
+                    </div>
+                    <p id="explanation" class="explanation"></p>
+                </section>
+
+                <section class="chart-section glass reveal">
+                    <canvas id="priceChart"></canvas>
+                </section>
+            </div>
+        </div>
+
+        <footer class="footer reveal">
+            <p>© 2024 QuantPulse AI • Advanced Data Science Project</p>
+        </footer>
+    </main>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
