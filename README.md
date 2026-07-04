@@ -2,6 +2,12 @@
 
 An AI-powered Stock Market Prediction System that forecasts future stock prices using both Machine Learning and Deep Learning techniques.
 
+## 📸 Dashboard Preview
+
+![QuantPulse Dashboard](dashboard_image.png)
+
+---
+
 This project compares the performance of:
 
 - ⚙️ Linear Regression (Machine Learning)
